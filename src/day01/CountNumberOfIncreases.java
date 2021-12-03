@@ -6,16 +6,14 @@ import java.util.Scanner;
 
 public class CountNumberOfIncreases {
     public static void main(String[] args) {
-        Scanner scanner = null;
         int previous = 0, next = 0;
         int count = 0;
-        try {
-            scanner = new Scanner(new File("day1input.txt"));
+        try (Scanner scanner = new Scanner(new File("day1Input.txt"))) {
             //read the first line
             if (scanner.hasNextInt()) {
                 previous = scanner.nextInt();
             }
-            // read until end of file (EOF)
+            // read until end of file
             while (scanner.hasNextInt()) {
                 next = scanner.nextInt();
                 if (next > previous) {
@@ -26,10 +24,6 @@ public class CountNumberOfIncreases {
             System.out.println(count);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
-        } finally {
-            if (scanner != null) {
-                scanner.close();
-            }
         }
     }
 }

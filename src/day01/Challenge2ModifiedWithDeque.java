@@ -8,18 +8,16 @@ import java.util.Scanner;
 
 public class Challenge2ModifiedWithDeque {
     public static void main(String[] args) {
-        Scanner scanner = null;
         Deque<Integer> deque = new ArrayDeque<>();
         int count = 0;
-        try {
-            scanner = new Scanner(new File("day1input.txt"));
+        try (Scanner scanner = new Scanner(new File("day1Input.txt"))) {
             //read the first three lines
             for (int i = 0; i < 3; i++) {
                 if (scanner.hasNextInt()) {
                     deque.addLast(scanner.nextInt());
                 }
             }
-            // read until end of file (EOF)
+            // read until end of file
             while (scanner.hasNextInt()) {
                 deque.addLast(scanner.nextInt());
                 if (deque.getLast() > deque.getFirst()) {
@@ -30,10 +28,6 @@ public class Challenge2ModifiedWithDeque {
             System.out.println(count);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
-        } finally {
-            if (scanner != null) {
-                scanner.close();
-            }
         }
     }
 }
