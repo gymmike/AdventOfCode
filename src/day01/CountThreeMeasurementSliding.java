@@ -8,12 +8,12 @@ public class CountThreeMeasurementSliding {
     public static void main(String[] args) {
         Scanner scanner = null;
         //in this case, I need four numbers to compare, I will compare the the sum of one to 3, then 2 to 4
-        //so the first three
+        //updated, just the first one with the fourth will be enough
         int previous = 0, previous1 = 0, previous2 = 0, next;
         int count = 0;
         try {
-            scanner = new Scanner(new File("C:/Users/Aguang/Desktop/AdventOfCode/day1input.txt"));
-            //read the first line
+            scanner = new Scanner(new File("day1input.txt"));
+            //read the first three lines
             if (scanner.hasNextInt()) {
                 previous = scanner.nextInt();
             }
