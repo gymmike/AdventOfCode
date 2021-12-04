@@ -18,7 +18,7 @@ public class DayThreeChallengeOneHardCoded {
             for (int i = 0; i < 1000; i++) {
                 arr[i] = scanner.nextLine();
             }
-            for (int k = 0; k < 12; k++) {
+            for (int k = 0; k < flags.length; k++) {
                 int flag = 0;
                 for (int i = 0; i < arr.length; i++) {
                         if (arr[i].toCharArray()[k] > 48) {
