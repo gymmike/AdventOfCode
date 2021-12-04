@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class DayThreeChallengeOneHardCoded {
     public static void main(String[] args) {
-        System.out.println(calculatePowerConsumption(true) * calculatePowerConsumption(false));
+        System.out.println(calculatePowerConsumption() );
     }
 
-    public static int calculatePowerConsumption(boolean gammaOrEpsilon) {
+    public static int calculatePowerConsumption() {
         Scanner scanner;
         int[] flags = new int[12];
         try {
@@ -21,19 +21,11 @@ public class DayThreeChallengeOneHardCoded {
             for (int k = 0; k < 12; k++) {
                 int flag = 0;
                 for (int i = 0; i < arr.length; i++) {
-                    if (gammaOrEpsilon) {
                         if (arr[i].toCharArray()[k] > 48) {
                             flag++;
                         } else {
                             flag--;
                         }
-                    } else {
-                        if (arr[i].toCharArray()[k] > 48) {
-                            flag--;
-                        } else {
-                            flag++;
-                        }
-                    }
                 }
                 if (flag > 0) {
                     flags[k] = 1;
@@ -41,11 +33,13 @@ public class DayThreeChallengeOneHardCoded {
                     flags[k] = 0;
                 }
             }
-            String binaryString = "";
+            String gammaString = "";
+            String epsilonString="";
             for (int flag : flags) {
-                binaryString = binaryString + flag;
+                gammaString = gammaString + flag;
+                epsilonString=epsilonString+(1-flag) ;
             }
-            return Integer.parseInt(binaryString, 2);
+            return Integer.parseInt(gammaString, 2)*Integer.parseInt(epsilonString,2);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
