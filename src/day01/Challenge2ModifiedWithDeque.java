@@ -10,7 +10,7 @@ public class Challenge2ModifiedWithDeque {
     public static void main(String[] args) {
         Deque<Integer> deque = new ArrayDeque<>();
         int count = 0;
-        try (Scanner scanner = new Scanner(new File("day1Input.txt"))) {
+        try (Scanner scanner = new Scanner(new File("src/inputFiles/day1Input.txt"))) {
             //read the first three lines
             for (int i = 0; i < 3; i++) {
                 if (scanner.hasNextInt()) {

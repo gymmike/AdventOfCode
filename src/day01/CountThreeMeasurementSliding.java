@@ -10,7 +10,7 @@ public class CountThreeMeasurementSliding {
         //updated, just the first one with the fourth will be enough
         int previous = 0, previous1 = 0, previous2 = 0, next;
         int count = 0;
-        try (Scanner scanner = new Scanner(new File("day1Input.txt"))) {
+        try (Scanner scanner = new Scanner(new File("src/inputFiles/day1Input.txt"))) {
             //read the first three lines
             if (scanner.hasNextInt()) {
                 previous = scanner.nextInt();

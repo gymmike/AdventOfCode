@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class DayThreeChallengeTwo {
     public static void main(String[] args) {
         try {
-            Scanner scanner = new Scanner(new File("day3Input.txt"));
+            Scanner scanner = new Scanner(new File("src/inputFiles/day3Input.txt"));
             List<String> list = new ArrayList<>();
             while (scanner.hasNextLine()) {
                 list.add(scanner.nextLine());

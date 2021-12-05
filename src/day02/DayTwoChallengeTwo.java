@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class DayTwoChallengeTwo {
     public static void main(String[] args) {
         int depth = 0, aim = 0, horizontal = 0;
-        try (Scanner scanner = new Scanner(new File("day2Input.txt"))) {
+        try (Scanner scanner = new Scanner(new File("src/inputFiles/day2Input.txt"))) {
             // read until end of file
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();

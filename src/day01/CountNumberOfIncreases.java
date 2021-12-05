@@ -8,7 +8,7 @@ public class CountNumberOfIncreases {
     public static void main(String[] args) {
         int previous = 0, next = 0;
         int count = 0;
-        try (Scanner scanner = new Scanner(new File("day1Input.txt"))) {
+        try (Scanner scanner = new Scanner(new File("src/inputFiles/day1Input.txt"))) {
             //read the first line
             if (scanner.hasNextInt()) {
                 previous = scanner.nextInt();
