@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class DayFiveChallengeTwo {
     public static void main(String[] args) {
         try {
-            Scanner scanner = new Scanner(new File("src/inputFiles/test.txt"));
-            int[][] matrix = new int[10][10];
+            Scanner scanner = new Scanner(new File("src/inputFiles/day5Input.txt"));
+            int[][] matrix = new int[1000][1000];
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] arr = line.split(" -> ");
@@ -35,20 +35,30 @@ public class DayFiveChallengeTwo {
                     int diffAb = Math.abs(diff);
                     matrix[x1][y1]++;
                     for (int i = 1; i <= diffAb; i++) {
-                        matrix[x1][y1 - diff / diffAb*i]++;
+                        matrix[x1][y1 - diff / diffAb * i]++;
                     }
                 } else if (y1 == y2) {
-                   int diff=x1-x2;
-                   int diffAb=Math.abs(diff);
-                   matrix[x1][y1]++;
-                    for (int i =1; i <= diffAb; i++) {
-                        matrix[x1-diff/diffAb*i][y1]++;
+                    int diff = x1 - x2;
+                    int diffAb = Math.abs(diff);
+                    matrix[x1][y1]++;
+                    for (int i = 1; i <= diffAb; i++) {
+                        matrix[x1 - diff / diffAb * i][y1]++;
                     }
+                } else if (Math.abs(x2 - x1) == Math.abs(y2 - y1)) {
+                    int xDiff = x1-x2;
+                    int yDiff = y1-y2;
+                    int abYDiff = Math.abs(yDiff);
+                    int abXDiff = Math.abs(xDiff);
+                    matrix[x1][y1]++;
+                    for (int i = 1; i <= abXDiff; i++) {
+                        matrix[x1 - xDiff / abXDiff * i][y1 - yDiff / abYDiff * i]++;
+                    }
+
                 }
             }
             int sum = 0;
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 1000; i++) {
+                for (int j = 0; j < 1000; j++) {
                     if (matrix[i][j] > 1) {
                         sum++;
                     }
