@@ -36,7 +36,7 @@ public class DayFourChallengeTwo {
                                 board[i][j] = -1;
                                 //determine if this board has got bingo
                                 boolean rowFlag = true;
-                                //see if the column has got a bingo
+                                //see if the row has got a bingo
                                 for (int k = 0; k < 5; k++) {
                                     if (board[i][k] != -1) {
                                         rowFlag = false;
@@ -44,18 +44,21 @@ public class DayFourChallengeTwo {
                                     }
                                 }
                                 boolean columnFlag = true;
-                                //if the row didn't have a bingo already, now check if the row has a bingo
+                                //if the row didn't have a bingo already, now check if the column has a bingo
                                 if (!rowFlag) {
                                     for (int k = 0; k < 5; k++) {
                                         if (board[k][j] != -1) {
                                             columnFlag = false;
                                             break;
                                         }
+                                        //can't just use one flag and do the flip here, in that case only one number
+                                        //needs to be -1 in that column to turn flag into true
                                     }
+                                    //can't just use one flag and do the flip here， in that case, it will always be set to true
                                 }
 
                                 //if there is a bingo, that board should be set to false
-                                if (rowFlag||columnFlag) {
+                                if (rowFlag || columnFlag) {
                                     map.put(board, false);
                                     int sum = 0;
                                     for (int l = 0; l < 5; l++) {
