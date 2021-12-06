@@ -12,7 +12,6 @@ public class DayFourChallengeOne {
             List<int[][]> list = new ArrayList<>();
             getBoards(scanner, list);
             drawFirstFour(queue, list);
-            int temp = 0;
             int sum = 0;
             //poll one at a time
             while (!queue.isEmpty()) {
@@ -22,7 +21,7 @@ public class DayFourChallengeOne {
                     for (int i = 0; i < 5; i++) {
                         for (int j = 0; j < 5; j++) {
                             if (board[i][j] == next) {
-                                temp = board[i][j];
+                                next = board[i][j];
                                 board[i][j] = -1;
                                 //determine if this board has got bingo
                                 boolean flag = true;
@@ -41,8 +40,7 @@ public class DayFourChallengeOne {
                                     }
                                 }
                                 if (flag) {
-                                    System.out.println("Bingo: " + temp);
-                                    System.out.println(temp);
+                                    System.out.println("Bingo: " + next);
                                     for (int l = 0; l < 5; l++) {
                                         for (int m = 0; m < 5; m++) {
                                             if (board[l][m] != -1) {
@@ -51,7 +49,7 @@ public class DayFourChallengeOne {
                                         }
                                     }
                                     System.out.println("sum=" + sum);
-                                    System.out.println("score = " + sum * temp);
+                                    System.out.println("score = " + sum * next);
                                     return;
                                 }
                             }
