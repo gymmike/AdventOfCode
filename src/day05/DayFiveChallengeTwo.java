@@ -8,10 +8,10 @@ public class DayFiveChallengeTwo {
     public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(new File("src/inputFiles/test.txt"));
-            int[][] matrix = new int[1000][1000];
+            int[][] matrix = new int[10][10];
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] arr = line.split("->");
+                String[] arr = line.split(" -> ");
                 //over here populate the parallel array with actual data.
                 //the goal if to make every element that are on the line increase by one
                 //so we have to determine the line, we only want horizontal lines or vertical lines
@@ -24,43 +24,31 @@ public class DayFiveChallengeTwo {
                 int x1, x2, y1, y2;
                 String[] fArr = arr[0].split(",");
                 String[] sArr = arr[1].split(",");
-                x1 = Integer.parseInt(fArr[0].trim());
-                x2 = Integer.parseInt(sArr[0].trim());
-                y1 = Integer.parseInt(fArr[1].trim());
-                y2 = Integer.parseInt(sArr[1].trim());
+                x1 = Integer.parseInt(fArr[0]);
+                x2 = Integer.parseInt(sArr[0]);
+                y1 = Integer.parseInt(fArr[1]);
+                y2 = Integer.parseInt(sArr[1]);
                 if (x1 == x2 && y1 == y2) {
                     matrix[x1][y1]++;
                 } else if (x1 == x2) {
-                    //populate the array
-                    if (y2 > y1) {
-                        while (y2 != y1) {
-                            matrix[x1][y1]++;
-                            y1++;
-                        }
-                        matrix[x1][y2]++;
-                    } else {
-                        while (y2 != y1) {
-                            matrix[x1][y2]++;
-                            y2++;
-                        }
-                        matrix[x1][y1]++;
+                    int diff = y1 - y2;
+                    int diffAb = Math.abs(diff);
+                    matrix[x1][y1]++;
+                    for (int i = 1; i <= diffAb; i++) {
+                        matrix[x1][y1 - diff / diffAb*i]++;
                     }
                 } else if (y1 == y2) {
-                    while (x1 != x2) {
-                        if (x2 > x1) {
-                            matrix[x1][y1]++;
-                            x1++;
-                        } else {
-                            matrix[x2][y1]++;
-                            x2++;
-                        }
+                   int diff=x1-x2;
+                   int diffAb=Math.abs(diff);
+                   matrix[x1][y1]++;
+                    for (int i =1; i <= diffAb; i++) {
+                        matrix[x1-diff/diffAb*i][y1]++;
                     }
-                    matrix[x1][y1]++;
                 }
             }
             int sum = 0;
-            for (int i = 0; i < 1000; i++) {
-                for (int j = 0; j < 1000; j++) {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
                     if (matrix[i][j] > 1) {
                         sum++;
                     }
