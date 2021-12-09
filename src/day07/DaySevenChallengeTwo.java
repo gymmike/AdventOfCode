@@ -24,7 +24,7 @@ public class DaySevenChallengeTwo {
             for (int i = 0; i < array.length; i++) {
                 int stepsNeeded = Math.abs(array[i] - ave);
                 int fuelForThisCrab = 0;
-                if (stepsNeeded % 2 == 0) {
+                if (stepsNeeded % 2 ==0) {
                     fuelForThisCrab = (stepsNeeded + 1) * (stepsNeeded / 2);
                 } else {
                     fuelForThisCrab = (stepsNeeded + 1) * (stepsNeeded / 2) + (stepsNeeded + 1) / 2;
