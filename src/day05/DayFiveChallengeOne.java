@@ -12,13 +12,13 @@ public class DayFiveChallengeOne {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] arr = line.split(" -> ");
-                //over here populate the parallel array with actual data.
+                //over here populate the nested array with actual data.
                 //the goal if to make every element that are on the line increase by one
                 //so we have to determine the line, we only want horizontal lines or vertical lines
                 //it's either x1=x2 or y1=y2, if it does not satisfy either condition, then the line
                 //is discarded
                 //so the condition is either x1-x2=0 or y1-y2=0, in the case of x1=x2, y-1 will be the
-                //index where the parallel array increase by one, from point x1 to point x2
+                //index where the nested array increase by one, from point x1 to point x2
                 //how to store the points? using a tree? key and value? will the data benefit from sorting?
                 //or do you not store the data at all? just do anther split and do the calculation directly
                 int x1, x2, y1, y2;

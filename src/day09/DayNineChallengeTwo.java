@@ -15,7 +15,7 @@ public class DayNineChallengeTwo {
     //A container to hold the coordinates of all the points that have been iterated so it belongs to only one basin
     //sets only allow unique elements, coordinates are unique
     private static HashSet<String> coordinatesTraversed = new HashSet<>();
-    //parallel array could also be used, but it would be troublesome to get the size of the rows since it's required to
+    //nested array could also be used, but it would be troublesome to get the size of the rows since it's required to
     //determine if the row is last row.
     private static List<int[]> matrix;
 
