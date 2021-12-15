@@ -10,7 +10,7 @@ public class Day14PartOne {
 
     public static void main(String[] args) {
         try {
-            Scanner scanner = new Scanner(new File("src/inputFiles/test.txt"));
+            Scanner scanner = new Scanner(new File("src/inputFiles/day14Input.txt"));
             StringBuilder builder = new StringBuilder();
             builder.append(scanner.nextLine());
             scanner.nextLine();
@@ -33,7 +33,7 @@ public class Day14PartOne {
             HashMap<Character, Integer> letterMap = new HashMap<>();
             for (Character c :
                     builder.toString().toCharArray()) {
-                if(letterMap.keySet().contains(c)){
+                if(letterMap.containsKey(c)){
                     letterMap.put(c,letterMap.get(c)+1);
                 }else{
                     letterMap.put(c,1);
