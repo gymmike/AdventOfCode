@@ -13,7 +13,6 @@ public class Day17 {
     private static int xMax = 0;
     private static int xMin = 0;
     private static int yMin = 0;
-    private static int yMax = 0;
 
     public static void main(String[] args) {
         try {
@@ -28,7 +27,7 @@ public class Day17 {
             yTargetBottom = Integer.parseInt(yRange.split("\\.\\.")[0]);
             xMax = xTargetRight;
             yMin = yTargetBottom;
-            yMax = Math.abs(yTargetBottom) - 1;
+            int yMax = Math.abs(yTargetBottom) - 1;
             int sum = 0;
             while (sum < xTargetLeft) {
                 xMin++;
@@ -40,7 +39,6 @@ public class Day17 {
                 }
             }
             System.out.println(count);
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -55,11 +53,6 @@ public class Day17 {
         if (x > xMax || x < xMin || y < yMin) {
             return;
         }
-        if (originalX > 0) {
-            checkIfInTarget(x + originalX, y + originalY, originalX - 1, originalY - 1);
-        } else {
-            checkIfInTarget(x, y + originalY, originalX - 1, originalY - 1);
-        }
-
+        checkIfInTarget(originalX > 0 ? (x + originalX) : x, y + originalY, originalX - 1, originalY - 1);
     }
 }
